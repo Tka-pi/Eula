@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>【エウルア】聖遺物最適化</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Eula.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div style="margin-top: 100px;"></div>
+        <h1>聖遺物最適化ツール</h1>
+        <h3>【エウルア】</h3>
+        <div style="margin:40px 0px 0px">メインオプションとサブオプションを区別せず入力してください。</div>
+
+        <div class="panel panel-default" style="clear: both; margin: 20px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">花
+          </div>
+        </div><p>
+        
+        <div>
+          <table class="table table-striped" style="width: auto;">
+            <thead>
+              <td>種類</td>
+              <td>攻撃</td>
+              <td>攻撃%</td>
+              <td>会心率%</td>
+              <td>会心ダメージ%</td>
+            </thead>
+            <tbody id="relic1">
+              <tr>
+                <td>
+                  <select>
+                    <option value=7>蒼白</option>
+                    <option value=5>血染め</option>
+                    <option value=3>剣闘士</option>
+                    <option value=2>しめ縄</option>
+                    <option value=1>その他</option>
+                  </select>
+                </td>
+                <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+                <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+                <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+                <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button onClick="add1();" style="margin: -15px 0px;">花を1つ追加</button>
+        <button onClick="del1();" style="margin: -15px 0px;">1つ削除</button>
+
+        <div class="panel panel-default" style="clear:both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">羽根
+          </div>
+        </div><p>
+
+        <table class="table table-striped" style="width: auto;">
+          <thead>
+            <td>種類</td>
+            <td>攻撃</td>
+            <td>攻撃%</td>
+            <td>会心率%</td>
+            <td>会心ダメージ%</td>
+          </thead>
+          <tbody id="relic2">
+            <tr>
+              <td>
+                <select>
+                  <option value=7>蒼白</option>
+                  <option value=5>血染め</option>
+                  <option value=3>剣闘士</option>
+                  <option value=2>しめ縄</option>
+                  <option value=1>その他</option>
+                </select>
+              </td>
+              <td><input inputmode="decimal" pattern="\d*"  value="311" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button onClick="add2();" style="margin: -15px 0px;">羽根を1つ追加</button>
+        <button onClick="del2();" style="margin: -15px 0px;">1つ削除</button>
+
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">時計
+          </div>
+        </div><p>
+
+        <table class="table table-striped" style="width: auto;">
+          <thead>
+            <td>種類</td>
+            <td>攻撃</td>
+            <td>攻撃%</td>
+            <td>会心率%</td>
+            <td>会心ダメージ%</td>
+          </thead>
+          <tbody id="relic3">
+            <tr>
+              <td>
+                <select>
+                  <option value=7>蒼白</option>
+                  <option value=5>血染め</option>
+                  <option value=3>剣闘士</option>
+                  <option value=2>しめ縄</option>
+                  <option value=1>その他</option>
+                </select>
+              </td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="46.6" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button onClick="add3();" style="margin: -15px 0px;">時計を1つ追加</button>
+        <button onClick="del3();" style="margin: -15px 0px;">1つ削除</button>
+
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">杯
+          </div>
+        </div><p>
+
+        <table class="table table-striped" style="width: auto;">
+          <thead>
+            <td>種類</td>
+            <td>攻撃</td>
+            <td>攻撃%</td>
+            <td>会心率%</td>
+            <td>会心ダメージ%</td>
+            <td>物理ダメージ%</td>
+          </thead>
+          <tbody id="relic4">
+            <tr>
+              <td>
+                <select>
+                  <option value=7>蒼白</option>
+                  <option value=5>血染め</option>
+                  <option value=3>剣闘士</option>
+                  <option value=2>しめ縄</option>
+                  <option value=1>その他</option>
+                </select>
+              </td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="58.3" style="width: 40px;"></input></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button onClick="add4();" style="margin: -15px 0px;">杯を1つ追加</button>
+        <button onClick="del4();" style="margin: -15px 0px;">1つ削除</button>
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">冠
+          </div>
+        </div><p>
+
+        <table class="table table-striped" style="width: auto; overflow: auto;">
+          <thead>
+            <td>種類</td>
+            <td>攻撃</td>
+            <td>攻撃%</td>
+            <td>会心率%</td>
+            <td>会心ダメージ%</td>
+          </thead>
+          <tbody id="relic5">
+            <tr>
+              <td>
+                <select>
+                  <option value=7>蒼白</option>
+                  <option value=5>血染め</option>
+                  <option value=3>剣闘士</option>
+                  <option value=2>しめ縄</option>
+                  <option value=1>その他</option>
+                </select>
+              </td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="31.1" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button onClick="add5();" style="margin: -15px 0px;">冠を1つ追加</button>
+        <button onClick="del5();" style="margin: -15px 0px;">1つ削除</button>
+
+
+
+
+
+
+
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">基本設定</div>
+        </div>
+
+
+        <div style="margin:0px 10px 10px 0px;">
+          蒼白4セット効果の発動割合：
+          <input inputmode="decimal" id="4set" pattern="\d*"  value="100" style="width: 40px;"></input>%
+        </div>
+
+        <div style="margin:0px 10px 10px 0px;">
+          武器基礎攻撃力：
+          <input inputmode="decimal" id="baseATK_weapon" pattern="\d*"  value="741" style="width: 40px;"></input>
+        </div>
+        基礎攻撃力以外の武器効果とエウルア1凸効果は、下の環境要素にまとめて入力してください。
+
+        <div style="margin-bottom: 10px; margin-top: 30px;">
+          各種バフ加算
+        </div>
+        <div style="margin-bottom: 5px;">
+          攻撃力+
+          <input inputmode="decimal" pattern="\d*"  id="u_ATKrate" value="0" style="width: 40px;"/>%
+        </div>
+        <div style="margin-bottom: 5px;">
+          会心率+
+          <input inputmode="decimal" pattern="\d*"  id="u_CRIT" value="0" style="width: 40px;"/>%
+        </div>
+        <div style="margin-bottom: 5px;">
+          会心ダメージ+
+          <input inputmode="decimal" pattern="\d*"  id="u_CRITd" value="0" style="width: 40px;"/>%
+        </div>
+        <div style="margin-bottom: 5px;">
+          物理ダメージ+
+          <input inputmode="decimal" pattern="\d*"  id="u_phys" value="0" style="width: 40px;"/>%
+        </div>
+
+
+
+        <button onClick="start();" style="margin: 20px 0px;">最適化</button>
+
+        <div>最適化はキャラLv.90を想定します。</div>
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">結果
+          </div>
+        </div> 
+            
+        <div>
+          <table class="table table-striped" style="width: auto;">
+            <thead>
+              <td></td>
+              <td>種類</td>
+              <td>攻撃</td>
+              <td>攻撃%</td>
+              <td>会心率%</td>
+              <td>会心ダメージ%</td>
+            </thead>
+            <tbody id="result">
+              <tr>
+                <td>花</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>羽根</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>時計</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>杯</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>冠</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default" style="clear: both; margin: 60px 0px 10px; background: rgb(240, 240, 240);">
+          <div class="panel-body" style="padding: 5px;">キャラクターラインナップ
+          </div>
+        </div> 
+
+
+
+        <div>
+          <a href="https://tka-pi.github.io/hutao/"><img src="icon/HuTao_icon.png" alt="胡桃" style="width: 80px; margin-right: 8px;"></a>
+          <a href="https://tka-pi.github.io/Ayaka/"><img src="icon/Ayaka_icon.png" alt="神里綾華" style="width: 80px; margin-right: 8px;"></a>
+          <a href="https://tka-pi.github.io/Eula"><img src="icon/Eula_icon.png" alt="エウルア" style="width: 80px; margin-right: 8px;"></a>
+          <a href="https://tka-pi.github.io/Albedo"><img src="icon/Albedo_icon.png" alt="アルベド" style="width: 80px; margin-right: 8px;"></a>
+          <a href="https://tka-pi.github.io/Yanfei/"><img src="icon/Yanfei_icon.png" alt="煙緋" style="width: 80px; margin-right: 8px;"></a>
+        </div>
+        <div style="margin:40px 0px 500px;">製作者：<a href="https://www.hoyolab.com/accountCenter/postList?id=136116680">たかぴい@HoYoLAB.com</a>　
+          <div>コンセプトや仕様については記事でも紹介しています。感想やフィードバックはそちらにお寄せください。</div>
+        </div>
+      </div>
+
+    <div style="margin: 0px 0px 50px;"></div>
+
+    
+  </body>
+</html>
