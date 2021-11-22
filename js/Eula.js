@@ -6,7 +6,7 @@ function add1(){
     var relic = document.getElementById("relic1");
     var row_num = relic.rows.length;
     var newrow  = relic.insertRow(row_num);
-    for(var j=0; j<=4; j++){
+    for(var j=0; j<=5; j++){
         var cellj = newrow.insertCell(j);
         cellj.innerHTML = relic.rows[row_num-1].cells[j].innerHTML;
     }
@@ -15,7 +15,7 @@ function add2(){
     var relic = document.getElementById("relic2");
     var row_num = relic.rows.length;
     var newrow  = relic.insertRow(row_num);
-    for(var j=0; j<=4; j++){
+    for(var j=0; j<=5; j++){
         var cellj = newrow.insertCell(j);
         cellj.innerHTML = relic.rows[row_num-1].cells[j].innerHTML;
     }
@@ -24,7 +24,7 @@ function add3(){
     var relic = document.getElementById("relic3");
     var row_num = relic.rows.length;
     var newrow  = relic.insertRow(row_num);
-    for(var j=0; j<=4; j++){
+    for(var j=0; j<=5; j++){
         var cellj = newrow.insertCell(j);
         cellj.innerHTML = relic.rows[row_num-1].cells[j].innerHTML;
     }
@@ -33,7 +33,7 @@ function add4(){
     var relic = document.getElementById("relic4");
     var row_num = relic.rows.length;
     var newrow  = relic.insertRow(row_num);
-    for(var j=0; j<=5; j++){
+    for(var j=0; j<=6; j++){
         var cellj = newrow.insertCell(j);
         cellj.innerHTML = relic.rows[row_num-1].cells[j].innerHTML;
     }
@@ -42,7 +42,7 @@ function add5(){
     var relic = document.getElementById("relic5");
     var row_num = relic.rows.length;
     var newrow  = relic.insertRow(row_num);
-    for(var j=0; j<=4; j++){
+    for(var j=0; j<=5; j++){
         var cellj = newrow.insertCell(j);
         cellj.innerHTML = relic.rows[row_num-1].cells[j].innerHTML;
     }
@@ -185,10 +185,19 @@ function eval(){
     var totalATK=baseATK*(1+(ATKrate+u_ATKrate)*0.01)+ATK;
     var total_CRIT=(5+u_CRIT+CRIT)*0.01;
     var total_CRITd=(50+u_CRITd+CRITd+38.4)*0.01;
-    return totalATK*(1+total_CRIT*total_CRITd)*(1+(phys+u_phys)*0.01);
+
+    console.log(constraint);
+
+    if(Charge>=(constraint-100)){
+        alert_constraint=0;
+        return totalATK*(1+total_CRIT*total_CRITd)*(1+(phys+u_phys)*0.01);
+    }else{
+        return 0;
+    }
+    
 }
 
-
+var  alert_constraint=1;
 
 let EV_index=[];
 let EV_vector=[];
@@ -200,6 +209,8 @@ u_CRITd             =Number($("#u_CRITd").val());
 u_phys              =Number($("#u_phys").val());
 
 set              =Number($("#4set").val())*0.01;
+
+constraint=Number($("#constraint").val());
 
 baseATK_weapon           =Number($("#baseATK_weapon").val());
 baseATK=342+baseATK_weapon;
@@ -225,7 +236,8 @@ for (var r1=0 ; r1<C1 ; r1++){
                     var ATKrate  =relic1_matrix[r1][2]+relic2_matrix[r2][2]+relic3_matrix[r3][2]+relic4_matrix[r4][2]+relic5_matrix[r5][2];
                     var CRIT     =relic1_matrix[r1][3]+relic2_matrix[r2][3]+relic3_matrix[r3][3]+relic4_matrix[r4][3]+relic5_matrix[r5][3];
                     var CRITd    =relic1_matrix[r1][4]+relic2_matrix[r2][4]+relic3_matrix[r3][4]+relic4_matrix[r4][4]+relic5_matrix[r5][4];
-                    var phys     =relic4_matrix[r4][5];
+                    var Charge   =relic1_matrix[r1][5]+relic2_matrix[r2][5]+relic3_matrix[r3][5]+relic4_matrix[r4][5]+relic5_matrix[r5][5];
+                    var phys     =relic4_matrix[r4][6];
 
                     var ev=0;
 
@@ -265,6 +277,8 @@ if(alert_minus==1){
     alert("期待値がマイナスです");
 }if(alert_nan==1){
     alert("数値を入力してください");
+}if(alert_constraint==1){
+    alert("拘束条件を満たす組が存在しません");
 }
 
 
@@ -314,16 +328,15 @@ if(alert_label==0){
     result.rows[3].cells[1].innerHTML=relic_name(relic4_matrix[R4][0]);
     result.rows[4].cells[1].innerHTML=relic_name(relic5_matrix[R5][0]);
 
-    for(var s=2;s<=5;s++){
+    for(var s=2;s<=6;s++){
     result.rows[0].cells[s].innerHTML=relic1_matrix[R1][s-1];
     result.rows[1].cells[s].innerHTML=relic2_matrix[R2][s-1];
     result.rows[2].cells[s].innerHTML=relic3_matrix[R3][s-1];
     result.rows[3].cells[s].innerHTML=relic4_matrix[R4][s-1];
     result.rows[4].cells[s].innerHTML=relic5_matrix[R5][s-1];
     }
-    console.log(relic4_matrix[R4][5]);
 
-    if(relic4_matrix[R4][5]>1){
+    if(relic4_matrix[R4][6]>1){
         result.rows[3].cells[0].innerHTML="杯(物理)";
     }else{
         result.rows[3].cells[0].innerHTML="杯";
