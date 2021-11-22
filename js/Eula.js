@@ -321,7 +321,7 @@ var R3=EV_index[max_index][2];
 var R4=EV_index[max_index][3];
 var R5=EV_index[max_index][4];
 
-if(alert_label==0){
+if(alert_label==0&&alert_constraint==0){
     result.rows[0].cells[1].innerHTML=relic_name(relic1_matrix[R1][0]);
     result.rows[1].cells[1].innerHTML=relic_name(relic2_matrix[R2][0]);
     result.rows[2].cells[1].innerHTML=relic_name(relic3_matrix[R3][0]);
