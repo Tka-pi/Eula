@@ -29,6 +29,7 @@
               <td>攻撃%</td>
               <td>会心率%</td>
               <td>会心ダメージ%</td>
+              <td>チャージ効率%</td>
             </thead>
             <tbody id="relic1">
               <tr>
@@ -41,6 +42,7 @@
                     <option value=1>その他</option>
                   </select>
                 </td>
+                <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
                 <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
                 <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
                 <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
@@ -65,6 +67,7 @@
             <td>攻撃%</td>
             <td>会心率%</td>
             <td>会心ダメージ%</td>
+            <td>チャージ効率%</td>
           </thead>
           <tbody id="relic2">
             <tr>
@@ -78,6 +81,7 @@
                 </select>
               </td>
               <td><input inputmode="decimal" pattern="\d*"  value="311" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
@@ -101,6 +105,7 @@
             <td>攻撃%</td>
             <td>会心率%</td>
             <td>会心ダメージ%</td>
+            <td>チャージ効率%</td>
           </thead>
           <tbody id="relic3">
             <tr>
@@ -115,6 +120,7 @@
               </td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="46.6" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
             </tr>
@@ -137,6 +143,7 @@
             <td>攻撃%</td>
             <td>会心率%</td>
             <td>会心ダメージ%</td>
+            <td>チャージ効率%</td>
             <td>物理ダメージ%</td>
           </thead>
           <tbody id="relic4">
@@ -150,6 +157,7 @@
                   <option value=1>その他</option>
                 </select>
               </td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
@@ -174,6 +182,7 @@
             <td>攻撃%</td>
             <td>会心率%</td>
             <td>会心ダメージ%</td>
+            <td>チャージ効率%</td>
           </thead>
           <tbody id="relic5">
             <tr>
@@ -189,6 +198,7 @@
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="31.1" style="width: 40px;"></input></td>
+              <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
               <td><input inputmode="decimal" pattern="\d*"  value="0" style="width: 40px;"></input></td>
             </tr>
           </tbody>
@@ -218,6 +228,11 @@
           武器基礎攻撃力：
           <input inputmode="decimal" id="baseATK_weapon" pattern="\d*"  value="741" style="width: 40px;"></input>
         </div>
+        <div style="margin:0px 10px 10px 0px;">
+          拘束条件：チャージ効率
+          <input inputmode="decimal" id="constraint" pattern="\d*"  value="100" style="width: 40px;"></input>%以上
+        </div>
+
         基礎攻撃力以外の武器効果とエウルア1凸効果は、下の環境要素にまとめて入力してください。
 
         <div style="margin-bottom: 10px; margin-top: 30px;">
@@ -260,10 +275,12 @@
               <td>攻撃%</td>
               <td>会心率%</td>
               <td>会心ダメージ%</td>
+              <td>チャージ効率%</td>
             </thead>
             <tbody id="result">
               <tr>
                 <td>花</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -277,9 +294,11 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td>時計</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -293,9 +312,12 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td>冠</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
