@@ -184,6 +184,9 @@ var Cx=C1*C2*C3*C4*C5;
 function eval(){
     var totalATK=baseATK*(1+(ATKrate+u_ATKrate)*0.01)+ATK;
     var total_CRIT=(5+u_CRIT+CRIT)*0.01;
+    if(total_CRIT>=1){
+        total_CRIT=1;
+    }
     var total_CRITd=(50+u_CRITd+CRITd+38.4)*0.01;
 
     console.log(constraint);
